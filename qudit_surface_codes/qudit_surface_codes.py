@@ -1,15 +1,11 @@
-from collections import Counter
-from typing import Tuple, List
+import matplotlib.pyplot as plt
 import numpy as np
-
+from multiset import Multiset
 from networkx import MultiGraph
 from networkx import nx
 from networkx.algorithms import bipartite
 from sympy.combinatorics import Permutation
-
-import matplotlib.pyplot as plt
-import multiset
-from multiset import Multiset
+from typing import Tuple, List
 
 
 class HybridSurfaceCodeGraph(MultiGraph):
