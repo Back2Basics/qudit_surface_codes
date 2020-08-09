@@ -206,10 +206,10 @@ class HybridSurfaceCodeGraph(MultiGraph):
         self.D2 = np.zeros(len(self.e_basis_dict), dtype=np.uint8)
         for cycle in self.phi:
             bd = self.boundary_2(cycle)
-            if bd != []:
-                image = sum([self.e_basis_dict[edge] for edge in bd])
-            else:
+            if bd == []:
                 image = np.zeros(len(self.e_basis_dict))
+            else:
+                image = sum([self.e_basis_dict[edge] for edge in bd])
             self.D2 = np.vstack((self.D2, image))
         self.D2 = np.array(self.D2[1:, :]).T
 
@@ -223,10 +223,10 @@ class HybridSurfaceCodeGraph(MultiGraph):
         self.D1 = np.zeros(len(self.v_basis_dict), dtype=np.uint8)
         for cycle in self.alpha:
             bd = self.boundary_1(cycle)
-            if bd != []:
-                image = sum([self.v_basis_dict[vertex] for vertex in bd])
-            else:
+            if bd == []:
                 image = np.zeros(len(self.v_basis_dict))
+            else:
+                image = sum([self.v_basis_dict[vertex] for vertex in bd])
             self.D1 = np.vstack((self.D1, image))
         self.D1 = np.array(self.D1[1:, :]).T
 
